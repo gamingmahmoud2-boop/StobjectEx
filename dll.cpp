@@ -199,14 +199,14 @@ STDAPI DllMain(HINSTANCE hModule, DWORD dwReason, void* lpReserved)
 {
     if (dwReason == DLL_PROCESS_ATTACH)
     {
-        SHFusionInitializeFromModule(hModule);
+     //   SHFusionInitializeFromModule(hModule);
         // Don't have DllMain called for thread init's.
         DisableThreadLibraryCalls(hModule);
         g_hinstDll = hModule;
     }
     else if (dwReason == DLL_PROCESS_DETACH)
     {
-        SHFusionUninitialize();
+     //   SHFusionUninitialize();
     }
 
     return TRUE;
