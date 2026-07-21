@@ -18,7 +18,7 @@ jobs:
 
     - name: Compile DLL
       run: |
-        cl /LD /O2 /EHsc /W0 /I. /IShundoc /IBringovers /DUNICODE /D_UNICODE *.c *.cpp Shundoc/*.c /link /OUT:StobjectEx.dll uuid.lib ole32.lib comctl32.lib gdi32.lib shlwapi.lib user32.lib winmm.lib advapi32.lib setupapi.lib cfgmgr32.lib shell32.lib powrprof.lib wtsapi32.lib
+        cl /LD /O2 /EHsc /W0 /I. /IShundoc /IBringovers /DUNICODE /D_UNICODE *.c *.cpp SHFusion.cpp Shundoc/*.c /link /OUT:StobjectEx.dll uuid.lib ole32.lib comctl32.lib gdi32.lib shlwapi.lib user32.lib winmm.lib advapi32.lib setupapi.lib cfgmgr32.lib shell32.lib powrprof.lib wtsapi32.lib
 
     - name: Upload DLL Artifact
       uses: actions/upload-artifact@v4
