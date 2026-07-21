@@ -1,0 +1,27 @@
+name: Build StobjectEx DLL
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up MSVC Developer Command Prompt
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Compile DLL
+      run: |
+        cl /LD /O2 /EHsc /W0 /I. /IShundoc /IBringovers /DUNICODE /D_UNICODE *.c *.cpp /link /OUT:StobjectEx.dll uuid.lib ole32.lib comctl32.lib gdi32.lib shlwapi.lib user32.lib winmm.lib
+
+    - name: Upload DLL Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: StobjectEx-DLL
+        path: StobjectEx.dll
